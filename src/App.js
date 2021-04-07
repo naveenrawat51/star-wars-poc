@@ -1,25 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Suspense } from "react";
+import Login from "./pages/login/Login";
+import { Route, Switch } from "react-router-dom";
+import Search from "./pages/search/Search";
+import { connect } from "react-redux";
+import ErrorBoundary from "./components//errorBoundary/ErrorBoundary";
 
-function App() {
+function App(props) {
+  let routes = (
+    <Switch>
+      <Route
+        path="/"
+        exact
+        render={(props) => <Login {...props} />}
+      />
+      <Route
+        path="/search"
+        exact
+        render={(props) => <Search {...props} />}
+      />
+    </Switch>
+  );
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ErrorBoundary>
+      <div className="App">
+        <Suspense fallback>{routes}</Suspense>
+      </div>
+    </ErrorBoundary>
   );
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    isAuthenticated: state.auth.isAuthenticated !== null,
+  };
+};
+
+export default connect(mapStateToProps, null)(App);

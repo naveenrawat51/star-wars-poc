@@ -1,0 +1,38 @@
+.heading {
+	font-size: 2rem;
+	padding: 16px 0;
+	color: #444;
+	text-align: center;
+}
+
+.container {
+	margin: 36px auto;
+	width: 100%;
+}
+
+
+.searchlabel {
+	position: relative;
+}
+
+.container input {
+	width: 100%;
+	padding: 16px;
+	font-size: 2rem;
+	font-style: italic;
+	color: #444;
+	box-sizing: border-box;
+	outline: none;
+}
+
+.headingContainer {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+@media (min-width: 1024px) {
+    .container {
+      width: 50%;
+    }
+  }

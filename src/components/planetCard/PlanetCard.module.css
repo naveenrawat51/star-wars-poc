@@ -1,0 +1,8 @@
+.panelCard {
+    margin-bottom: 1rem;
+    border: 2px solid green;
+    width: 50%;
+    padding: 5px;
+    border-radius: 5px;
+    box-shadow: -4px 5px 1px green;
+}
