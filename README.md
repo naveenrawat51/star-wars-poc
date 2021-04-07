@@ -21,3 +21,9 @@
 - consider name as username and date as password
 
 
+## Not included
+
+- unit test
+- advanced
+
+
